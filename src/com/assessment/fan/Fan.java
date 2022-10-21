@@ -18,22 +18,31 @@ public class Fan {
 	{
 		direction = direction == 1 ? -1 : 1;
 	}
+
+	public String getDirection()
+	{
+		return direction == 1 ? "Forward" : "Reverse";
+	}
+
+	public int getSpeed()
+	{
+		return speed;
+	}
 	
 	public String getStatus()
 	{
 		String s = "Fan speed %d & Direction %s";
-	
-		String sDirection = direction == 1 ? "Forward" : "Reverse";
-		
-		return String.format(s, speed, sDirection);
+		return String.format(s, getSpeed(), getDirection());
 	}
 	
 	public static void main(String[] args)
 	{
 		Fan fan = new Fan();
-		fan.increaseSpeed();
+		System.out.println(fan.getDirection());
+		System.out.println(fan.getSpeed());
 		fan.increaseSpeed();
 		System.out.println(fan.getStatus());
+
 	}
 
 }
